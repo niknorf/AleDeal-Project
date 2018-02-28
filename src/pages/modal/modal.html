@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="teal">
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="products != 0">
+
+<!--   <ion-card>
+    <ion-card-content>
+        <p>{{products.content.price}}</p>
+        <img src="{{products.img}}"/>
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-card>
+  <img src="{{products.img}}"/>
+  <ion-card-content>
+    <ion-card-title>
+      {{products.name}}
+      </ion-card-title>
+    <h2>Description:</h2>
+    <p>
+      {{products.description}}
+    </p>
+    <p><span item-end class="oldPrice">{{products.content.price}}</span></p>
+    <ion-badge item-end color="secondary" class="item-bold">{{products.discountPrice}}</ion-badge>
+   <!--  <p>
+    	Price: {{products.content.price}}
+    </p> -->
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

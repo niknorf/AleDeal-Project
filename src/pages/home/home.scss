@@ -1,0 +1,55 @@
+page-home {
+	.prodCard {
+		/*width: calc(100% - 5px);*/
+		/*width: 105px;*/
+		width: 150px;
+		margin: 0;
+	}
+
+ion-icon.catIcon {
+    font-size: 50px;
+    color: #fff;
+/*    height: 100%;
+	display: block;
+	vertical-align: middle;
+}*/
+}
+
+.left-icon {
+	background-color: #F44336;
+}
+
+.cat-text {
+	font-size: 1.5em;
+}
+
+.row-mar {
+	padding: 0;
+}
+
+.item-bold {
+  font-weight: bold;
+}
+
+.oldPrice {
+	text-decoration: line-through;
+	color: #F44336;
+}
+
+.prodPic img {
+	max-height: 70px;
+	width: auto;
+	display: block;
+    margin: 0 auto;
+}
+
+ion-card.adv-map p {
+  font-size: 0.7em !important;
+}
+
+button[fab].fab-map {
+  top: calc(100% - 35px);
+  z-index: 50;
+}
+
+}

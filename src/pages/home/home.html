@@ -1,0 +1,269 @@
+<ion-header>
+  <ion-navbar color="teal">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>AleDeal</ion-title>
+  </ion-navbar>
+  
+  <ion-toolbar no-border-top color="teal">
+    <ion-segment [(ngModel)]="tabs" color="white">
+      <ion-segment-button value="new">
+        What's new
+      </ion-segment-button>
+      <ion-segment-button value="kittens">
+        Popular
+      </ion-segment-button>
+      <ion-segment-button value="ducklings">
+        Local
+      </ion-segment-button>
+    </ion-segment>
+</ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="tabs">
+    <ion-list *ngSwitchCase="'new'">
+      <ion-card>
+        <img src="assets/imgs/deal.png"/>
+        <ion-card-content>
+          <ion-card-title>
+            Save up to 30%
+            </ion-card-title>
+          <p>
+            Fresh fruit and vegetables
+          </p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-grid>
+        <ion-row>
+<!--           <ion-col *ngFor="let product of productsList">
+            <ion-card class="prodCard" >
+              <img src="{{pic}}"/>
+              <ion-card-header>
+                {{product?.header}}
+              </ion-card-header>
+              <ion-card-content>
+                {{product?.description}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col> -->
+          <ion-col *ngFor="let product of products">
+            <ion-card class="prodCard" class="prodPic" (click)="openModal(product.id)">
+              <img src="{{product.img}}"/>
+              <ion-card-header>
+                {{product.smallName}}
+              </ion-card-header>
+              <ion-card-content align-items-end>
+                <span item-end class="oldPrice">{{product.content.price}}</span>
+                <ion-badge item-end color="secondary" class="item-bold">{{product.discountPrice}}</ion-badge>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+<!--           <ion-col>
+            <ion-card class="prodCard">
+              <img src="assets/imgs/promo/sample.png"/>
+              <ion-card-header>
+                Header
+              </ion-card-header>
+              <ion-card-content>
+                The British.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card class="prodCard">
+              <img src="assets/imgs/promo/sample.png"/>
+              <ion-card-header>
+                Header
+              </ion-card-header>
+              <ion-card-content>
+                The British.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card class="prodCard">
+              <img src="assets/imgs/promo/sample.png"/>
+              <ion-card-header>
+                Header
+              </ion-card-header>
+              <ion-card-content>
+                The British.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card class="prodCard">
+              <img src="assets/imgs/promo/sample.png"/>
+              <ion-card-header>
+                Header
+              </ion-card-header>
+              <ion-card-content>
+                The British.
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card class="prodCard">
+              <img src="assets/imgs/promo/sample.png"/>
+              <ion-card-header>
+                Header
+              </ion-card-header>
+              <ion-card-content>
+                The British.
+              </ion-card-content>
+            </ion-card>
+          </ion-col> -->
+
+        </ion-row>
+      </ion-grid>
+
+      <h2 padding>Categories</h2>
+
+      <ion-card>
+        <ion-grid class="row-mar">
+          <ion-row>
+            <ion-col text-center padding-vertical class="left-icon">
+              <ion-icon class="catIcon" name="basket"></ion-icon>
+            </ion-col>
+            <ion-col col-9>
+              <ion-card-content padding-vertical class="cat-text">
+                Groceries
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+            <ion-card>
+        <ion-grid class="row-mar">
+          <ion-row>
+            <ion-col text-center padding-vertical class="left-icon">
+              <ion-icon class="catIcon" name="laptop"></ion-icon>
+            </ion-col>
+            <ion-col col-9>
+              <ion-card-content padding-vertical class="cat-text">
+                Electronics
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+            <ion-card>
+        <ion-grid class="row-mar">
+          <ion-row>
+            <ion-col text-center padding-vertical class="left-icon">
+              <ion-icon class="catIcon" name="shirt"></ion-icon>
+            </ion-col>
+            <ion-col col-9>
+              <ion-card-content padding-vertical class="cat-text">
+                Clothes
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+            <ion-card>
+        <ion-grid class="row-mar">
+          <ion-row>
+            <ion-col text-center padding-vertical class="left-icon">
+              <ion-icon class="catIcon" name="home"></ion-icon>
+            </ion-col>
+            <ion-col col-9>
+              <ion-card-content padding-vertical class="cat-text">
+                Household goods
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+
+  </ion-list>
+
+    <ion-list *ngSwitchCase="'kittens'">
+  <img padding width="30%" height="auto" src="../../assets/imgs/Gigantti.png">
+  <div padding class=promotedproducts>
+    <img width="32%" height="auto" src="../../assets/imgs/ps4.PNG">
+    <img width="32%" height="auto" src="../../assets/imgs/tv1.png">
+    <img width="32%" height="auto" src="../../assets/imgs/tv2.png">
+  </div>
+
+  <img padding width="15%" height="auto" src="../../assets/imgs/hm.png">
+  <div padding class="promotedproducts">
+    <img width="32%" height="auto" src="../../assets/imgs/hm1.PNG">
+    <img width="32%" height="auto" src="../../assets/imgs/hm2.png">
+    <img width="32%" height="auto" src="../../assets/imgs/hm3.png">
+  </div>
+
+  <img padding width="30%" height="auto" src="../../assets/imgs/cdon.png">
+  <div padding class="promotedproducts">
+    <img width="32%" height="auto" src="../../assets/imgs/deals.PNG">
+    <img width="32%" height="auto" src="../../assets/imgs/movie.png">
+    <img width="32%" height="auto" src="../../assets/imgs/movie2.png">
+  </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'ducklings'">
+<ion-card class="adv-map">
+  <div style="position: relative">
+    <img src="assets/imgs/map.png">
+    <ion-fab right top>
+      <button ion-fab class="fab-map">
+        <ion-icon name='pin'></ion-icon>
+      </button>
+    </ion-fab>
+  </div>
+  <ion-item>
+    <ion-icon color="subtle" large item-start name='wine'></ion-icon>
+    <h2>Mango Disco Bar</h2>
+    <p>Saaristonkatu 16, 90100 Oulu</p>
+  </ion-item>
+  <ion-item actions>
+    <span ion-text item-start color="secondary" class="item-bold">18 min</span>
+    <span ion-text item-start color="subtle">(2.6 mi)</span>
+    <button ion-button color="primary" clear item-end icon-start>
+      <ion-icon name='navigate'></ion-icon>
+      Start
+    </button>
+  </ion-item>
+
+</ion-card>
+
+<ion-grid>
+    <ion-row>
+      <ion-col>
+        <div><img src="assets/imgs/bars.png"></div>
+      </ion-col>
+      <ion-col>
+        <div><img src="assets/imgs/cafe.png"></div>
+      </ion-col>
+    </ion-row>
+        <ion-row>
+      <ion-col>
+        <div><img src="assets/imgs/restaurant.png"></div>
+      </ion-col>
+      <ion-col>
+        <div><img src="assets/imgs/shop.png"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div><img src="assets/imgs/markets.jpg"></div>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+
+    </ion-list>
+  </div>
+</ion-content>

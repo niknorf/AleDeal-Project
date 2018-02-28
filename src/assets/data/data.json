@@ -1,0 +1,13 @@
+var products = [
+{
+	"id": 0,
+	"name": "Bread",
+	"description": "Fazer",
+	"price": 3.50,
+	"discountPrice": 2,
+	"img": "assets/imgs/product/fazer.jpg"
+},
+{
+	
+}
+]
